@@ -33,7 +33,7 @@ internal class BlockingFileSystemImpl : BlockingFileSystem {
         log.trace("Get file at path {}", path)
         if (path == Path.ROOT) return Directory(path)
         val fsNode = getDir(path.parent).items[path.name]
-                ?: throw FileNotFoundException("File with name ${path.name} not found in directory ${path.parent}")
+            ?: throw FileNotFoundException("File with name ${path.name} not found in directory ${path.parent}")
         return when (fsNode) {
             is FsNode.FsDirectory -> Directory(path)
             is FsNode.FsFile -> File(path, fsNode.content)
