@@ -14,4 +14,6 @@ interface AsyncFileSystem {
     fun createFile(path: Path, content: FileContent, onResult: (Result<File>) -> Unit)
 
     fun createDirectory(path: Path, onResult: (Result<Directory>) -> Unit)
+
+    fun delete(path: Path, onResult: (Result<Unit>) -> Unit)
 }

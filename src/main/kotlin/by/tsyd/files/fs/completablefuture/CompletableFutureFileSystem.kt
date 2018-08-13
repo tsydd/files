@@ -15,4 +15,6 @@ interface CompletableFutureFileSystem {
     fun createFile(path: Path, content: FileContent = null): CompletableFuture<File>
 
     fun createDirectory(path: Path): CompletableFuture<Directory>
+
+    fun delete(path: Path): CompletableFuture<Unit>
 }

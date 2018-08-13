@@ -15,4 +15,6 @@ interface RxFileSystem {
     fun createFile(path: Path, content: FileContent): Observable<File>
 
     fun createDirectory(path: Path): Observable<Directory>
+
+    fun delete(path: Path): Observable<Unit>
 }

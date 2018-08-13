@@ -33,6 +33,11 @@ class AsyncFileSystemImpl(
             fs.createDirectory(path)
         }
 
+    override fun delete(path: Path, onResult: (Result<Unit>) -> Unit) =
+        handleResult(onResult) {
+            fs.delete(path)
+        }
+
     private fun <T> handleResult(onResult: (Result<T>) -> Unit, block: suspend () -> T) {
         launch(Unconfined) {
             val result: T = try {
