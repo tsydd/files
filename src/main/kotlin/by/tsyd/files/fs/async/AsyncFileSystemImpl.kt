@@ -43,10 +43,10 @@ class AsyncFileSystemImpl(
             val result: T = try {
                 block()
             } catch (e: FsException) {
-                onResult(Result.ofError(e))
+                onResult(ErrorResult(e))
                 return@launch
             }
-            onResult(Result.of(result))
+            onResult(SuccessResult(result))
         }
     }
 }
