@@ -1,7 +1,6 @@
 package by.tsyd.files.delete
 
 import by.tsyd.files.dsl.fill
-import by.tsyd.files.dsl.fs
 import by.tsyd.files.fs.BlockingFileSystemImpl
 import by.tsyd.files.fs.kotlin.KotlinDelayFileSystem
 import org.junit.jupiter.api.Assertions
@@ -25,6 +24,6 @@ interface AsyncDeleteContract {
             getStrategy().delete(KotlinDelayFileSystem(100, source))
         }
 
-        assertEquals(source, fs { })
+        assertEquals(BlockingFileSystemImpl(), source)
     }
 }
