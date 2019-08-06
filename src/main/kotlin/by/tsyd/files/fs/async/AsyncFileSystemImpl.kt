@@ -2,8 +2,9 @@ package by.tsyd.files.fs.async
 
 import by.tsyd.files.fs.api.*
 import by.tsyd.files.fs.kotlin.KotlinFileSystem
-import kotlinx.coroutines.experimental.Unconfined
-import kotlinx.coroutines.experimental.launch
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 /**
  * @author Dmitry Tsydzik
@@ -39,7 +40,7 @@ class AsyncFileSystemImpl(
         }
 
     private fun <T> handleResult(onResult: (Result<T>) -> Unit, block: suspend () -> T) {
-        launch(Unconfined) {
+        GlobalScope.launch(Dispatchers.Unconfined) {
             val result: T = try {
                 block()
             } catch (e: FsException) {

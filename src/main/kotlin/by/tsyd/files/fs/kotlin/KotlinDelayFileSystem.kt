@@ -3,7 +3,7 @@ package by.tsyd.files.fs.kotlin
 import by.tsyd.files.fs.BlockingFileSystemImpl
 import by.tsyd.files.fs.api.*
 import by.tsyd.files.getLogger
-import kotlinx.coroutines.experimental.delay
+import kotlinx.coroutines.delay
 
 /**
  * @author Dmitry Tsydzik

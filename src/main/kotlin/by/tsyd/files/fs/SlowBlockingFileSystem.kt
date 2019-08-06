@@ -2,8 +2,8 @@ package by.tsyd.files.fs
 
 import by.tsyd.files.fs.api.*
 import by.tsyd.files.fs.kotlin.KotlinFileSystem
-import kotlinx.coroutines.experimental.Unconfined
-import kotlinx.coroutines.experimental.runBlocking
+import kotlinx.coroutines.Dispatchers.Unconfined
+import kotlinx.coroutines.runBlocking
 
 /**
  * @author Dmitry Tsydzik
